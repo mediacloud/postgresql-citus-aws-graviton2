@@ -7,6 +7,9 @@ DEB_CFLAGS_SET="-march=armv8.2-a+fp16+rcpc+dotprod+crypto -mcpu=neoverse-n1 -fsi
     dpkg-buildpackage -rfakeroot -b -uc -us
 ```
 
+Used `gcc-11 - 11.1.0-1ubuntu1~20.04` from [`ppa:ubuntu-toolchain-r/test`](https://launchpad.net/%7Eubuntu-toolchain-r/+archive/ubuntu/test).
+
+
 ## Links
 
 * https://blog.dbi-services.com/postgresql-on-aws-graviton2-cflags/
