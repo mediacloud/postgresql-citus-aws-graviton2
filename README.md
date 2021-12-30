@@ -1,4 +1,4 @@
-# PostgreSQL built for AWS Graviton2
+# PostgreSQL + Citus Data built for AWS Graviton2
 
 1. Launch a new ARM64 instance:
     * Ubuntu Server 20.04 LTS (HVM), SSD Volume Type
