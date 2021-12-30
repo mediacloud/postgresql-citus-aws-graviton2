@@ -122,6 +122,26 @@ make DESTDIR=~/citus-install install
 
 cd ~/
 mkdir citus-install/DEBIAN/
+cat << EOF > citus-install/DEBIAN/control
+Package: postgresql-14-citus-10.2
+Source: citus
+Version: 10.2.3.citus-1
+Architecture: arm64
+Maintainer: Linas Valiukas <linas@mediacloud.org>
+Depends: libc6 (>= 2.17), libcurl4 (>= 7.16.2), libcurl4-gnutls-dev, liblz4-1 (>= 0.0~r130), libpq5 (>= 9.2~beta3), libssl1.1 (>= 1.1.0), libzstd1 (>= 1.3.2), postgresql-14
+Conflicts: postgresql-14-citus
+Provides: postgresql-14-citus
+Section: database
+Priority: optional
+Homepage: https://github.com/mediacloud/postgresql-aws-graviton2
+Description: sharding and distributed joins for PostgreSQL (built for AWS Graviton2)
+ Citus is a distributed database implemented as a PostgreSQL extension. It
+ provides functions to easily split a PostgreSQL table into shards to be
+ placed on remote worker nodes. Citus can replicate shards, update their
+ schemas, and keep track of shard health. An advanced distributed planner
+ is included which handles queries and modifications against sharded tables.
+
+EOF
 
 dpkg-deb --build --root-owner-group citus-install/
 mv citus-install.deb postgresql-14-citus-10.2_10.2.3.citus-1_arm64.deb
